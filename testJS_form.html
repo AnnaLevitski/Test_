@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>testJS form</title>
-
 </head>
 <body>
-
     <form action="" method="post" name="test" id="form">
         <label for="name">Name:*</label>
         <input type="text" name="name" placeholder="Ur name" id="name"> <br/> <br/>
@@ -17,14 +15,15 @@
         <label for="RePassword">Review password:*</label>
         <input type="password" name="RePassword" placeholder="Ur password" id="RePassword"> <br/> <br/>
         <span>Gender:</span>
-        <div><input type="radio" name="state" id="male" value="Male"/> <label for="male">Male</label></div>
-        <div><input type="radio" name="state" id="female" value="Female"/> <label for="female">Female</label></div>
+        <div id="containerRBTN1"><input type="radio" name="state" id="male" value="Male" /> <label for="male">Male</label></div>
+        <div id="containerRBTN2"><input type="radio" name="state" id="female" value="Female" /> <label for="female">Female</label></div>
            <!-- <input type="radio" name="state" id="non" value=" " /> <label for="non">I dont want to fill it</label> -->
         <br/> <br/>
-        <input type="button" onclick="valid(document.getElementById('form'))"  name="submit" value="Go" id="first">
+        <input type="button" onclick="valid(document.getElementById('form'))" class="forTest" name="submit" value="Go" id="first">
         <hr>
         <hr>
     </form>
+
     <script type="text/javascript">
         function valid (form) {
             var fail = false;
@@ -51,13 +50,13 @@
             } else if (RePassword != password) {
                 fail = "Passwords dont match";
             }
-/*             } else if (state == "") {
-                fail = "Fill in ur gender";
-            } */
+            // } else if (state == "") {
+            //     fail = "Fill in ur gender"; 
+            // } 
             if (fail) {
-                alert(fail);
+                console.log(fail);
             } else {
-                alert("Ok good! You can be proud of youself");
+                console.log('Ok good! You can be proud of youself');
                 setNewInfo()
             }
         }
@@ -69,7 +68,7 @@
             const el = document.querySelector('input[name="state"]:checked');
             //const state = el ? el.value : null;
             const state = el ? el.value : "not specified";
-            console.log(state);
+            //console.log(state);
             member.name = document.getElementById('name').value;
             member.email = document.getElementById('email').value;
             member.password = document.getElementById('password').value;
@@ -77,7 +76,6 @@
             
             members.push(member);
             //console.log(members);
-            
 
             let div = document.createElement('div');
             for (let i = 0; i< members.length; i++  ) {
@@ -85,7 +83,7 @@
             }
             document.getElementById('form').append(div);
         }
-
     </script>
+    <script src="JS/JSTest.js"></script>
 </body>
 </html>
